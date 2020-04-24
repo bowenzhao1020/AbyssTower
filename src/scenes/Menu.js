@@ -5,7 +5,7 @@ class Menu extends Phaser.Scene{
 
     preload(){
         // all the image of menu goes here
-        this.load.image('gamePic', './assets/ThunderCat.png');
+        this.load.image('gamePic', './assets/Menu.png');
     }
 
     create(){

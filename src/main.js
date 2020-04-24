@@ -1,1 +1,1 @@
-let game = new Phaser.game();
+let game = new Phaser.Game();

@@ -5,4 +5,4 @@ let config = {
     scene: [ Menu, Play ],
 };
 
-let game = new Phaser.Game();
+let game = new Phaser.Game(config);

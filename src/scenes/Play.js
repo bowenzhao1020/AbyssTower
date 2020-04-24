@@ -4,8 +4,8 @@ class Play extends Phaser.Scene{
     }
 
     create(){
-        create(){
-            this.add.text(20, 20, "goodbye world");
-        }
+
+        this.add.text(20, 20, "goodbye world");
+        
     }
 }

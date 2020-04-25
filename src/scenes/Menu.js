@@ -14,7 +14,7 @@ class Menu extends Phaser.Scene{
 
         //menu display
         let menuConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Arial',
             fontSize: '50px',
             color: '#FFFFFF',
             align: 'left',
@@ -27,7 +27,7 @@ class Menu extends Phaser.Scene{
 
         // information display
         let infoConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Arial',
             fontSize: '25px',
             color: '#FFFFFF',
             align: 'center',
@@ -43,8 +43,17 @@ class Menu extends Phaser.Scene{
         let centerY = game.config.height/2;
 
         this.add.text(centerX, centerY - 220, 'Hell Tower', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY + 150, 'Press Any Key To Start The Game', infoConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + 150, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
+
+        //space key scene change
+        this.key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 
+    update(){
+
+        if(this.key.isDown){
+            this.scene.start("instruScene");
+        }
+    }
 
 }

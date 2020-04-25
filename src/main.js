@@ -1,11 +1,11 @@
 let config = {
-    type: Phaser.CANVAS,
-    width: 960,
-    height: 1280,
+    type: Phaser.AUTO,
+    width: 600,
+    height: 800,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [ Menu, Play ],
+    scene: [ Menu, Instru, Play ],
 };
 
 let game = new Phaser.Game(config);

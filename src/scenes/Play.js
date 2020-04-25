@@ -5,7 +5,7 @@ class Play extends Phaser.Scene{
 
     create(){
 
-        this.add.text(20, 20, "goodbye world");
+        this.add.text(game.config.width/2, game.config.height/2, "goodbye world").setOrigin(0.5);
         
     }
 }

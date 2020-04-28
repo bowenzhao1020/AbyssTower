@@ -35,9 +35,6 @@ class Instru extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        //instrcution menu text
-        let centerX = game.config.width/2;
-
         this.add.text(centerX, 80, 'Instruction!', titleConfig).setOrigin(0.5);
 
         this.add.text(centerX, 150, 'Press ← and → to move around', instruConfig).setOrigin(0.5);

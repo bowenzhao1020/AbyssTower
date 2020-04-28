@@ -5,7 +5,21 @@ let config = {
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [ Menu, Instru, Play ],
+    physics: {
+        default: 'arcade',
+        arcade: {
+            //debug: true,
+            gravity: {
+                x: 0,
+                y: 0
+            }
+        }
+    },
+    scene: [ Menu, Instru, Play, Over ],
 };
 
 let game = new Phaser.Game(config);
+
+// global event
+let centerX = game.config.width/2;
+let centerY = game.config.height/2;

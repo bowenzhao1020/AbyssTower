@@ -10,7 +10,7 @@ class Menu extends Phaser.Scene{
 
     create(){
         //test placement for title screen
-        this.gamePic = this.add.tileSprite(0, 0, 480, 640, 'gamePic').setOrigin(0, 0);
+        this.gamePic = this.add.tileSprite(0, 0, 960, 1280, 'gamePic').setOrigin(0, 0);
     }
 
 

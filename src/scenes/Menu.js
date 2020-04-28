@@ -38,10 +38,6 @@ class Menu extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        //display menu info text
-        let centerX = game.config.width/2;
-        let centerY = game.config.height/2;
-
         this.add.text(centerX, centerY - 220, 'Hell Tower', menuConfig).setOrigin(0.5);
         this.add.text(centerX, centerY + 150, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
 

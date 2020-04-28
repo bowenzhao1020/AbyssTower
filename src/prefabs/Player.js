@@ -14,7 +14,7 @@ class Player extends Phaser.GameObjects.Sprite{
         if(keyLEFT.isDown){
             this.x -= 5;
         }
-        if(keyRIGHT.isDown){
+        else if(keyRIGHT.isDown){
             this.x += 5;
         }
 

@@ -20,6 +20,9 @@ let config = {
 
 let game = new Phaser.Game(config);
 
+// reserve keyboard value
+let keySpace, keyLEFT, keyRIGHT;
+
 // global event
 let centerX = game.config.width/2;
 let centerY = game.config.height/2;

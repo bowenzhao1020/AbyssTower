@@ -19,4 +19,9 @@ class Play extends Phaser.Scene{
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
     }
+
+    update(){
+        //update player movement
+        this.player.update();
+    }
 }

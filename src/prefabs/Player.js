@@ -7,15 +7,16 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         scene.add.existing(this);
         // check if jumping in mid air status
         this.isJumping = false;
-        this.jumpHeight = 0;
     }
 
     update(){
+        //initiate velocity
+        this.body.velocity.x = 0;
         //left&right movement
         if(keyLEFT.isDown){
-            this.x -= 4;
+            this.body.velocity.x -= 400;
         }else if(keyRIGHT.isDown){
-            this.x += 4;
+            this.body.velocity.x += 400;
         }
 
         //jump bar
@@ -23,8 +24,11 @@ class Player extends Phaser.Physics.Arcade.Sprite{
             this.isJumping = true;
         }
         if(this.isJumping){
-            this.y -= 3;
+            this.body.velocity.y = -400;
+            this.isJumping = true;
         }
+        
+        this.reset();
     }
 
     // condition for player restart the game

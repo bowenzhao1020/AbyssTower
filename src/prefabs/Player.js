@@ -7,18 +7,24 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         scene.add.existing(this);
         // check if jumping in mid air status
         this.isJumping = false;
+        this.jumpHeight = 0;
     }
 
     update(){
         //left&right movement
-        if(keyLEFT.isDown && this.x >= 50){
+        if(keyLEFT.isDown){
             this.x -= 4;
-        }else if(keyRIGHT.isDown && this.x <= 550){
+        }else if(keyRIGHT.isDown){
             this.x += 4;
         }
 
         //jump bar
-        
+        if(Phaser.Input.Keyboard.JustDown(keySPACE) && !this.isJumping){
+            this.isJumping = true;
+        }
+        if(this.isJumping){
+            this.y -= 3;
+        }
     }
 
     // condition for player restart the game

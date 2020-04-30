@@ -12,12 +12,16 @@ class Platform extends Phaser.Physics.Arcade.Sprite{
         //initiate velocity : maybe implement random x movement later version
         this.body.velocity.x = 0;
         //velocity used for platform falling
-        this.body.velocity.y += -4.1;
+        this.body.velocity.y += -1;
        
+        if(this.y > game.config.height){
+            this.reset();
+        }
     }
 
     // condition for player restart the game
     reset() {
-
+        this.x = Math.floor(Math.random() * ((game.config.width - 94) - 94 + 1)) + 94;
+        this.y = 0 - 200;
     }
 }

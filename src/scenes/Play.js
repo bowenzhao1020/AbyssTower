@@ -22,7 +22,7 @@ class Play extends Phaser.Scene{
         this.physics.add.existing(this.platform);
         this.platform.body.setImmovable(true);
             //requirement for testing player collide with platform
-        this.platform.body.collideWorldBounds = true;
+            //this.platform.body.collideWorldBounds = true;
         this.platform.body.onCollide = true
     
 
@@ -38,6 +38,7 @@ class Play extends Phaser.Scene{
         this.player.update();
         this.platform.update();
 
+        //collision between player and platform
         this.physics.collide(this.platform, this.player);
     }
 }

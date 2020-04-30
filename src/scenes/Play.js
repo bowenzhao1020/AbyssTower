@@ -10,7 +10,7 @@ class Play extends Phaser.Scene{
     create(){
 
         //player added
-        this.player = new Player(this, game.config.width/2, game.config.height/2, 'player').setOrigin(0.5, 0.5);
+        this.player = new Player(this, centerX, centerY, 'player').setOrigin(0.5, 0.5);
         
         // player physics activate
         this.physics.add.existing(this.player);

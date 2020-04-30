@@ -6,15 +6,23 @@ class Play extends Phaser.Scene{
     preload(){
         // load sprites
         this.load.image('player', './assets/Player.png');
+        this.load.image('platform', './assets/Platform.png');
     }
     create(){
 
         //player added
         this.player = new Player(this, centerX, centerY, 'player').setOrigin(0.5, 0.5);
+
+        this.platform = new Platform(this, centerX, centerY + 300, 'platform').setOrigin(0.5, 0.5);
         
         // player physics activate
         this.physics.add.existing(this.player);
         this.player.body.collideWorldBounds = true;
+        //platform physics activate
+        this.physics.add.existing(this.platform);
+            //requirement for testing player collide with platform
+        this.platform.body.collideWorldBounds = true;
+        this.platform.body.onCollide = true
     
 
         //define input keys
@@ -27,5 +35,8 @@ class Play extends Phaser.Scene{
     update(){
         //update player movement
         this.player.update();
+        this.platform.update();
+
+        this.physics.collide(this.platform, this.player);
     }
 }

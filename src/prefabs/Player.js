@@ -5,6 +5,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
 
         //add to existing, displayList, updateList
         scene.add.existing(this);
+        this.jumpOk = false;
     }
 
     update(){
@@ -15,6 +16,10 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.body.velocity.y += 10;
         //check mid air status
         this.standing = this.body.blocked.down || this.body.touching.down;
+        //check jump avaliability
+        if(this.standing){
+            this.jumpOk = true;
+        }
 
 
         //left&right movement
@@ -25,9 +30,14 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         }
 
         //jump movement
-        if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.standing){
-            this.body.velocity.y = -900;
+        if(this.jumpOk == true){
+            if(Phaser.Input.Keyboard.JustDown(keySPACE)){
+                this.body.velocity.y = -900;
+            }
+            this.jumpOk = false;
         }
+
+        
     }
 
     // condition for player restart the game

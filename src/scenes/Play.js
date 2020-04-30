@@ -20,6 +20,7 @@ class Play extends Phaser.Scene{
         this.player.body.collideWorldBounds = true;
         //platform physics activate
         this.physics.add.existing(this.platform);
+        this.platform.body.setImmovable(true);
             //requirement for testing player collide with platform
         this.platform.body.collideWorldBounds = true;
         this.platform.body.onCollide = true

@@ -1,5 +1,5 @@
 let config = {
-    type: Phaser.CANVAS,
+    type: Phaser.AUTO,
     width: 3508/3,
     height: 2480/3,
     scale: {

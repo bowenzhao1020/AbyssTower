@@ -24,15 +24,15 @@ class Player extends Phaser.Physics.Arcade.Sprite{
 
         //left&right movement
         if(keyLEFT.isDown){
-            this.body.velocity.x -= 400;
+            this.body.velocity.x -= 500;
         }else if(keyRIGHT.isDown){
-            this.body.velocity.x += 400;
+            this.body.velocity.x += 500;
         }
 
         //jump movement
         if(this.jumpOk == true){
             if(Phaser.Input.Keyboard.JustDown(keySPACE)){
-                this.body.velocity.y = -900;
+                this.body.velocity.y = -1800;
             }
             this.jumpOk = false;
         }

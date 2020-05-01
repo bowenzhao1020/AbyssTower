@@ -22,7 +22,7 @@ class Play extends Phaser.Scene{
         //platform physics activate
         this.physics.add.existing(this.platform);
         this.platform.body.setImmovable(true);
-        //this.platform.body.onCollide = true;
+        this.platform.body.onCollide = true;
     
 
         //define input keys

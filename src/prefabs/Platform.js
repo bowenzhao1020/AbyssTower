@@ -13,8 +13,6 @@ class Platform extends Phaser.Physics.Arcade.Sprite{
         this.body.velocity.x = 0;
         //velocity used for platform falling
         this.body.velocity.y = 0;
-        //seperate gravity calculation for platform falling, can be adjust later for increasing speed over time
-        this.body.gravity.y = 5000;
        
         if(this.y > game.config.height + 49){
             this.reset();

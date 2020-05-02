@@ -97,12 +97,91 @@ class Play extends Phaser.Scene{
         this.physics.collide(this.platform06, this.player);
         this.physics.collide(this.platform07, this.player);
         this.physics.collide(this.platform08, this.player);
-        this.physics.collide(this.platform01, this.platform02);
-        this.physics.collide(this.platform01, this.platform03);
-        this.physics.collide(this.platform01, this.platform04);
-        this.physics.collide(this.platform02, this.platform03);
-        this.physics.collide(this.platform02, this.platform04);
-        this.physics.collide(this.platform03, this.platform04);
-        
+
+        //collision check between platforms and reset x position on collide
+        if(this.physics.collide(this.platform01, this.platform02)){
+            this.platform02.reset();
+        }
+        if(this.physics.collide(this.platform01, this.platform03)){
+            this.platform03.reset();
+        }
+        if( this.physics.collide(this.platform01, this.platform04)){
+            this.platform04.reset();
+        }
+        if( this.physics.collide(this.platform01, this.platform05)){
+            this.platform05.reset();
+        }
+        if( this.physics.collide(this.platform01, this.platform06)){
+            this.platform06.reset();
+        }
+        if( this.physics.collide(this.platform01, this.platform07)){
+            this.platform07.reset();
+        }
+        if( this.physics.collide(this.platform01, this.platform08)){
+            this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform02, this.platform03)){
+            this.platform03.reset();
+        }
+        if( this.physics.collide(this.platform02, this.platform04)){
+            this.platform04.reset();
+        }
+        if( this.physics.collide(this.platform02, this.platform05)){
+            this.platform05.reset();
+        }
+        if( this.physics.collide(this.platform02, this.platform06)){
+            this.platform06.reset();
+        }
+        if( this.physics.collide(this.platform02, this.platform07)){
+            this.platform07.reset();
+        }
+        if( this.physics.collide(this.platform02, this.platform08)){
+            this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform03, this.platform04)){
+            this.platform04.reset();
+        }
+        if( this.physics.collide(this.platform03, this.platform05)){
+            this.platform05.reset();
+        }
+        if( this.physics.collide(this.platform03, this.platform06)){
+            this.platform06.reset();
+        }
+        if( this.physics.collide(this.platform03, this.platform07)){
+            this.platform07.reset();
+        }
+        if( this.physics.collide(this.platform03, this.platform08)){
+            this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform04, this.platform05)){
+            this.platform05.reset();
+        }
+        if( this.physics.collide(this.platform04, this.platform06)){
+            this.platform06.reset();
+        }
+        if( this.physics.collide(this.platform04, this.platform07)){
+            this.platform07.reset();
+        }
+        if( this.physics.collide(this.platform04, this.platform08)){
+            this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform05, this.platform06)){
+            this.platform06.reset();
+        }
+        if( this.physics.collide(this.platform05, this.platform07)){
+            this.platform07.reset();
+        }
+        if( this.physics.collide(this.platform05, this.platform08)){
+            this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform06, this.platform07)){
+            this.platform07.reset();
+        }
+        if( this.physics.collide(this.platform06, this.platform08)){
+            this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform07, this.platform08)){
+            this.platform08.reset();
+        }
     }
 }

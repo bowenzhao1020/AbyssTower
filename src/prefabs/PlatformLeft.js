@@ -1,5 +1,5 @@
 // js file for platform object
-class Platform extends Phaser.Physics.Arcade.Sprite{
+class PlatformL extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y, texture, frame){
         super(scene, x, y, texture, frame);
 
@@ -13,8 +13,10 @@ class Platform extends Phaser.Physics.Arcade.Sprite{
         this.body.velocity.x = 0;
         //velocity used for platform falling
         this.body.velocity.y = 0;
-        //seperate gravity calculation for platform falling, can be adjust later for increasing speed over time
-        this.body.gravity.y = 5000;
+        //use to increase the dropping down speed of platform
+        this.body.y += 0;
+
+        this.body.gravity.y = 0;
        
         if(this.y > game.config.height + 49){
             this.reset();
@@ -23,7 +25,7 @@ class Platform extends Phaser.Physics.Arcade.Sprite{
 
     // condition for player restart the game
     reset() {
-        this.x = Math.floor(Math.random() * ((game.config.width - 94) - 94 + 1)) + 94;
-        this.y = 0 - 200;
+        this.x = Math.floor(Math.random() * (centerX - 94 + 1)) + 94;
+        this.y = Math.floor(Math.random() * (0 + 50 + 1)) - 50;
     }
 }

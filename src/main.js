@@ -10,7 +10,7 @@ let config = {
         arcade: {
             debug: true,
             gravity: {
-                y: 500,
+                y: 5000,
             }
         }
     },
@@ -21,6 +21,8 @@ let game = new Phaser.Game(config);
 
 // reserve keyboard value
 let keySPACE, keyLEFT, keyRIGHT;
+
+let player, platforms;
 
 // global event
 let centerX = game.config.width/2;

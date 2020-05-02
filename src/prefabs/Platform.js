@@ -22,6 +22,6 @@ class Platform extends Phaser.Physics.Arcade.Sprite{
     // condition for player restart the game
     reset() {
         this.x = Math.floor(Math.random() * ((game.config.width - 94) - 94 + 1)) + 94;
-        this.y = 0 - 200;
+        this.y = Math.floor(Math.random() * (0 + 500 + 1)) - 500;
     }
 }

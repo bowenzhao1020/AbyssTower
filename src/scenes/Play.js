@@ -5,13 +5,20 @@ class Play extends Phaser.Scene{
 
     preload(){
         // load sprites
-        this.load.image('player', './assets/Player.png');
+        this.load.image('spike', './assets/Spike.png');
+        this.load.image('background', './assets/Background.png');
         this.load.image('platform', './assets/Platform.png');
+        this.load.spritesheet('player', './assets/Player.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 7});
 
         //load bgm
         this.load.audio('playBgm', './assets/playBGM.mp3');
     }
+    
     create(){
+
+        // load background
+        this.background = this.add.tileSprite(0, 0, 1168, 826, 'background').setOrigin(0, 0);
+        this.spike = this.add.tileSprite(centerX, 0, 1168, 826, 'spike').setOrigin(0, 0);
 
         //bgm start play
         this.playBgm = this.sound.add('playBgm', {
@@ -93,7 +100,7 @@ class Play extends Phaser.Scene{
 
     update(){
 
-        
+        this.background.tilePositionY -= 4;        
 
         if(this.player.body.blocked.down){
             this.gameOver = true;

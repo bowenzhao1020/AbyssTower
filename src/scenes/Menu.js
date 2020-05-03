@@ -38,8 +38,8 @@ class Menu extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        this.add.text(centerX, centerY - 220, 'Hell Tower', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY + 150, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
+        this.add.text(100, centerY - 300, 'Hell Tower', menuConfig).setOrigin(0.5);
+        this.add.text(100, centerY - 400, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
 
         //space key scene change
         this.key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);

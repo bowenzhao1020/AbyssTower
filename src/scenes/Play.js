@@ -17,8 +17,7 @@ class Play extends Phaser.Scene{
     create(){
 
         // load background
-        this.background = this.add.tileSprite(0, 0, 1168, 826, 'background').setOrigin(0, 0);
-        this.spike = this.add.tileSprite(0, 0, 1168, 826, 'spike').setOrigin(0, 0);
+        this.background = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 0);
 
         //bgm start play
         this.playBgm = this.sound.add('playBgm', {
@@ -42,6 +41,9 @@ class Play extends Phaser.Scene{
         this.platform07 = new PlatformR(this, 940, 200, 'platform').setOrigin(0.5, 0.5);
         this.platform08 = new PlatformR(this, 980, 500, 'platform').setOrigin(0.5, 0.5);
         this.platform09 = new PlatformR(this, 1010, 650, 'platform').setOrigin(0.5, 0.5);
+
+        //load spike
+        this.spike = this.add.sprite(0, game.config.height - 75, 'spike').setOrigin(0, 0);
         
         // player physics activate
         this.physics.add.existing(this.player);
@@ -83,6 +85,12 @@ class Play extends Phaser.Scene{
         this.physics.add.existing(this.platform09);
         this.platform09.body.setImmovable(true);
         this.platform09.body.onCollide = true;
+
+        //spike detection
+        this.physics.add.existing(this.spike);
+        this.spike.body.setAllowGravity(false);
+        this.spike.body.setImmovable(true);
+        this.spike.body.onCollide = true;
     
 
         //define input keys
@@ -100,9 +108,12 @@ class Play extends Phaser.Scene{
 
     update(){
 
+        //background scrolling
         this.background.tilePositionY -= 4;        
 
-        if(this.player.body.blocked.down){
+
+        //game over condition
+        if(this.physics.collide(this.spike, this.player)){
             this.gameOver = true;
         }
 
@@ -120,6 +131,7 @@ class Play extends Phaser.Scene{
         if(this.gameOver == false){
             //update player movement
             this.player.update();
+        }
             //update platform movement
             this.platform01.update();
             this.platform02.update();
@@ -130,7 +142,7 @@ class Play extends Phaser.Scene{
             this.platform07.update();
             this.platform08.update();
             this.platform09.update();
-        }
+
 
         //collision between player and platform
         this.physics.collide(this.platform01, this.player);

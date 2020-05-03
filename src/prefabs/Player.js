@@ -13,11 +13,11 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         //initiate velocity
         this.body.velocity.x = 0;
         //velocity used for faster falling down
-        this.body.velocity.y += 10;
+        this.body.velocity.y += 0;
         //check mid air status
-        this.standing = this.body.blocked.down || this.body.touching.down;
+        this.standing = this.body.blocked.down || this.body.wasTouching.down;
         //check jump avaliability
-        if(this.standing){
+        if(this.body.wasTouching.down){
             this.jumpOk = true;
         }
 

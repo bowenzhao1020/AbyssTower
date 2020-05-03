@@ -14,15 +14,15 @@ class Play extends Phaser.Scene{
         this.player = new Player(this, centerX, centerY, 'player').setOrigin(0.5, 0.5);
 
         //platform sprite added
-        this.platform01 = new PlatformL(this, 100, 650, 'platform').setOrigin(0.5, 0.5);
-        this.platform02 = new PlatformL(this, 220, 250, 'platform').setOrigin(0.5, 0.5);
-        this.platform03 = new PlatformL(this, 280, 427, 'platform').setOrigin(0.5, 0.5);
-        this.platform04 = new PlatformC(this, 324, 500, 'platform').setOrigin(0.5, 0.5);
-        this.platform05 = new PlatformC(this, 600, 187, 'platform').setOrigin(0.5, 0.5);
-        this.platform06 = new PlatformC(this, 455, 777, 'platform').setOrigin(0.5, 0.5);
-        this.platform07 = new PlatformR(this, 700, 384, 'platform').setOrigin(0.5, 0.5);
-        this.platform08 = new PlatformR(this, 832, 639, 'platform').setOrigin(0.5, 0.5);
-        this.platform09 = new PlatformR(this, 927, 489, 'platform').setOrigin(0.5, 0.5);
+        this.platform01 = new PlatformL(this, 115, 570, 'platform').setOrigin(0.5, 0.5);
+        this.platform02 = new PlatformL(this, 270, 340, 'platform').setOrigin(0.5, 0.5);
+        this.platform03 = new PlatformL(this, 388, 100, 'platform').setOrigin(0.5, 0.5);
+        this.platform04 = new PlatformC(this, 400, 780, 'platform').setOrigin(0.5, 0.5);
+        this.platform05 = new PlatformC(this, 590, 480, 'platform').setOrigin(0.5, 0.5);
+        this.platform06 = new PlatformC(this, 620, 270, 'platform').setOrigin(0.5, 0.5);
+        this.platform07 = new PlatformR(this, 940, 200, 'platform').setOrigin(0.5, 0.5);
+        this.platform08 = new PlatformR(this, 980, 500, 'platform').setOrigin(0.5, 0.5);
+        this.platform09 = new PlatformR(this, 1010, 650, 'platform').setOrigin(0.5, 0.5);
         
         // player physics activate
         this.physics.add.existing(this.player);

@@ -22,9 +22,9 @@ class PlatformC extends Phaser.Physics.Arcade.Sprite{
         }
     }
 
-    // condition for player restart the game
+    // condition for platform constant rolling from top
     reset() {
-        this.x = Math.floor( Math.random() * (680 - 389 + 1) + 389);
+        this.x = Math.floor( Math.random() * (779 - 389 + 1) + 389);
         this.y = 0;
     }
 }

@@ -26,9 +26,9 @@ class PlatformL extends Phaser.Physics.Arcade.Sprite{
         }
     }
 
-    // condition for player restart the game
+    // condition for platform constant rolling from top
     reset() {
-        this.x = Math.floor( Math.random() * (300 - 88 + 1) + 88);
+        this.x = Math.floor( Math.random() * (389 - 88 + 1) + 88);
         this.y = 0;
     }
 }

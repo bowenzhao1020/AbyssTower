@@ -5,6 +5,7 @@ class PlatformR extends Phaser.Physics.Arcade.Sprite{
 
         //add to existing, displayList, updateList
         scene.add.existing(this);
+
     }
 
     update(){
@@ -15,17 +16,15 @@ class PlatformR extends Phaser.Physics.Arcade.Sprite{
         this.body.velocity.y = 0;
         //use to increase the dropping down speed of platform
         this.body.y += 0;
-
-        this.body.gravity.y = 0;
        
         if(this.y > game.config.height + 49){
             this.reset();
         }
     }
 
-    // condition for player restart the game
+    // condition for platform constant rolling from top
     reset() {
-        this.x = Math.floor(Math.random() * ((game.config.width - 94) - (centerX + 94) + 1)) + (centerX + 94);
-        this.y = Math.floor(Math.random() * (0 + 50 + 1)) - 50;
+        this.x = Math.floor( Math.random() * (1080 - 779 + 1) + 779);
+        this.y = 0;
     }
 }

@@ -1,5 +1,5 @@
 // js file for platform object
-class PlatformR extends Phaser.Physics.Arcade.Sprite{
+class PlatformC extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y, texture, frame){
         super(scene, x, y, texture, frame);
 
@@ -24,7 +24,7 @@ class PlatformR extends Phaser.Physics.Arcade.Sprite{
 
     // condition for player restart the game
     reset() {
-        this.x = Math.floor( Math.random() * (1080 - 770 + 1) + 770);
+        this.x = Math.floor( Math.random() * (680 - 389 + 1) + 389);
         this.y = 0;
     }
 }

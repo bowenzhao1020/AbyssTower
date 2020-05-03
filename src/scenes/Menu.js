@@ -16,7 +16,7 @@ class Menu extends Phaser.Scene{
         let menuConfig = {
             fontFamily: 'Arial',
             fontSize: '50px',
-            color: '#FFFFFF',
+            color: '#000000',
             align: 'left',
             padding: {
                 top: 5,
@@ -38,8 +38,8 @@ class Menu extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        this.add.text(centerX, centerY - 220, 'Hell Tower', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY + 150, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - 150, 'Hell Tower', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + 300, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
 
         //space key scene change
         this.key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);

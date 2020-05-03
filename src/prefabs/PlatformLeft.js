@@ -5,6 +5,11 @@ class PlatformL extends Phaser.Physics.Arcade.Sprite{
 
         //add to existing, displayList, updateList
         scene.add.existing(this);
+
+        //between function for spawn range
+        function between(min, max){
+            return Math.floor( Math.random() * (max - min + 1) + min);
+        }
     }
 
     update(){
@@ -15,8 +20,6 @@ class PlatformL extends Phaser.Physics.Arcade.Sprite{
         this.body.velocity.y = 0;
         //use to increase the dropping down speed of platform
         this.body.y += 0;
-
-        this.body.gravity.y = 0;
        
         if(this.y > game.config.height + 49){
             this.reset();
@@ -25,7 +28,7 @@ class PlatformL extends Phaser.Physics.Arcade.Sprite{
 
     // condition for player restart the game
     reset() {
-        this.x = Math.floor(Math.random() * (centerX - 94 + 1)) + 94;
-        this.y = Math.floor(Math.random() * (0 + 50 + 1)) - 50;
+        this.x = Math.floor( Math.random() * (300 - 88 + 1) + 88);
+        this.y = 0;
     }
 }

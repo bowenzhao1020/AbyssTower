@@ -13,22 +13,16 @@ class Play extends Phaser.Scene{
         //player added
         this.player = new Player(this, centerX, centerY, 'player').setOrigin(0.5, 0.5);
 
-        //set a group for all platform to be detected
-        // platforms = this.physics.add.group({
-        //     key: 'platform',
-        //     velocityX: 0,
-        //     velocityY: 0,
-        //     gravityY: game.config.physics.arcade.gravity.y,
-        // });
-
-        this.platform01 = new PlatformL(this, 200, 400, 'platform').setOrigin(0.5, 0.5);
-        this.platform02 = new PlatformL(this, 500, 650, 'platform').setOrigin(0.5, 0.5);
-        this.platform03 = new PlatformL(this, 700, 200, 'platform').setOrigin(0.5, 0.5);
-        this.platform04 = new PlatformL(this, 1000, 500, 'platform').setOrigin(0.5, 0.5);
-        this.platform05 = new PlatformR(this, 324, 187, 'platform').setOrigin(0.5, 0.5);
-        this.platform06 = new PlatformR(this, 637, 777, 'platform').setOrigin(0.5, 0.5);
-        this.platform07 = new PlatformR(this, 849, 384, 'platform').setOrigin(0.5, 0.5);
-        this.platform08 = new PlatformR(this, 444, 639, 'platform').setOrigin(0.5, 0.5);
+        //platform sprite added
+        this.platform01 = new PlatformL(this, 100, 650, 'platform').setOrigin(0.5, 0.5);
+        this.platform02 = new PlatformL(this, 220, 250, 'platform').setOrigin(0.5, 0.5);
+        this.platform03 = new PlatformL(this, 280, 427, 'platform').setOrigin(0.5, 0.5);
+        this.platform04 = new PlatformC(this, 324, 500, 'platform').setOrigin(0.5, 0.5);
+        this.platform05 = new PlatformC(this, 600, 187, 'platform').setOrigin(0.5, 0.5);
+        this.platform06 = new PlatformC(this, 455, 777, 'platform').setOrigin(0.5, 0.5);
+        this.platform07 = new PlatformR(this, 700, 384, 'platform').setOrigin(0.5, 0.5);
+        this.platform08 = new PlatformR(this, 832, 639, 'platform').setOrigin(0.5, 0.5);
+        this.platform09 = new PlatformR(this, 927, 489, 'platform').setOrigin(0.5, 0.5);
         
         // player physics activate
         this.physics.add.existing(this.player);
@@ -66,6 +60,10 @@ class Play extends Phaser.Scene{
         this.physics.add.existing(this.platform08);
         this.platform08.body.setImmovable(true);
         this.platform08.body.onCollide = true;
+
+        this.physics.add.existing(this.platform09);
+        this.platform09.body.setImmovable(true);
+        this.platform09.body.onCollide = true;
     
 
         //define input keys
@@ -87,6 +85,7 @@ class Play extends Phaser.Scene{
         this.platform06.update();
         this.platform07.update();
         this.platform08.update();
+        this.platform09.update();
 
         //collision between player and platform
         this.physics.collide(this.platform01, this.player);
@@ -97,12 +96,14 @@ class Play extends Phaser.Scene{
         this.physics.collide(this.platform06, this.player);
         this.physics.collide(this.platform07, this.player);
         this.physics.collide(this.platform08, this.player);
+        this.physics.collide(this.platform08, this.player);
+        this.physics.collide(this.platform09, this.player);
 
         //collision check between platforms and reset x position on collide
-        if(this.physics.collide(this.platform01, this.platform02)){
+        if( this.physics.collide(this.platform01, this.platform02)){
             this.platform02.reset();
         }
-        if(this.physics.collide(this.platform01, this.platform03)){
+        if( this.physics.collide(this.platform01, this.platform03)){
             this.platform03.reset();
         }
         if( this.physics.collide(this.platform01, this.platform04)){
@@ -119,6 +120,9 @@ class Play extends Phaser.Scene{
         }
         if( this.physics.collide(this.platform01, this.platform08)){
             this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform01, this.platform09)){
+            this.platform09.reset();
         }
         if( this.physics.collide(this.platform02, this.platform03)){
             this.platform03.reset();
@@ -138,6 +142,9 @@ class Play extends Phaser.Scene{
         if( this.physics.collide(this.platform02, this.platform08)){
             this.platform08.reset();
         }
+        if( this.physics.collide(this.platform02, this.platform09)){
+            this.platform09.reset();
+        }
         if( this.physics.collide(this.platform03, this.platform04)){
             this.platform04.reset();
         }
@@ -153,6 +160,9 @@ class Play extends Phaser.Scene{
         if( this.physics.collide(this.platform03, this.platform08)){
             this.platform08.reset();
         }
+        if( this.physics.collide(this.platform03, this.platform09)){
+            this.platform09.reset();
+        }
         if( this.physics.collide(this.platform04, this.platform05)){
             this.platform05.reset();
         }
@@ -165,6 +175,9 @@ class Play extends Phaser.Scene{
         if( this.physics.collide(this.platform04, this.platform08)){
             this.platform08.reset();
         }
+        if( this.physics.collide(this.platform04, this.platform09)){
+            this.platform09.reset();
+        }
         if( this.physics.collide(this.platform05, this.platform06)){
             this.platform06.reset();
         }
@@ -174,14 +187,26 @@ class Play extends Phaser.Scene{
         if( this.physics.collide(this.platform05, this.platform08)){
             this.platform08.reset();
         }
+        if( this.physics.collide(this.platform05, this.platform09)){
+            this.platform09.reset();
+        }
         if( this.physics.collide(this.platform06, this.platform07)){
             this.platform07.reset();
         }
         if( this.physics.collide(this.platform06, this.platform08)){
             this.platform08.reset();
         }
+        if( this.physics.collide(this.platform06, this.platform09)){
+            this.platform09.reset();
+        }
         if( this.physics.collide(this.platform07, this.platform08)){
             this.platform08.reset();
+        }
+        if( this.physics.collide(this.platform07, this.platform09)){
+            this.platform09.reset();
+        }
+        if( this.physics.collide(this.platform08, this.platform09)){
+            this.platform09.reset();
         }
     }
 }

@@ -18,7 +18,7 @@ class Play extends Phaser.Scene{
 
         // load background
         this.background = this.add.tileSprite(0, 0, 1168, 826, 'background').setOrigin(0, 0);
-        this.spike = this.add.tileSprite(centerX, 0, 1168, 826, 'spike').setOrigin(0, 0);
+        this.spike = this.add.tileSprite(0, 0, 1168, 826, 'spike').setOrigin(0, 0);
 
         //bgm start play
         this.playBgm = this.sound.add('playBgm', {

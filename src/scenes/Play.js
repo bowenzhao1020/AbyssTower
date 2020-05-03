@@ -7,8 +7,20 @@ class Play extends Phaser.Scene{
         // load sprites
         this.load.image('player', './assets/Player.png');
         this.load.image('platform', './assets/Platform.png');
+
+        //load bgm
+        this.load.audio('playBgm', './assets/playBGM.mp3');
     }
     create(){
+
+        //bgm start play
+        this.playBgm = this.sound.add('playBgm', {
+            mute: false,
+            volume: 0.5,
+            rate: 1,
+            loop: true
+        });
+        this.playBgm.play();
 
         //player added
         this.player = new Player(this, centerX, centerY, 'player').setOrigin(0.5, 0.5);
@@ -73,16 +85,28 @@ class Play extends Phaser.Scene{
 
         //game over check
         this.gameOver = false;
+
+        //check death sound effect
+        this.soundPlay = false;
+
     }
 
     update(){
+
+        
 
         if(this.player.body.blocked.down){
             this.gameOver = true;
         }
 
         if(this.gameOver == true){
-            this.time.delayedCall(2000, () => { this.scene.start('overScene');});
+            if(this.soundPlay == false){
+                this.playBgm.stop();
+                this.sound.play('death');
+                this.soundPlay = true;
+            }
+            
+            this.time.delayedCall(2000, () => {this.scene.start('overScene');});
         }
 
         //check if not over

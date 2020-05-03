@@ -5,7 +5,11 @@ class Player extends Phaser.Physics.Arcade.Sprite{
 
         //add to existing, displayList, updateList
         scene.add.existing(this);
+
         this.jumpOk = false;
+
+        //jump sound effect
+        this.sfxJump = scene.sound.add('jump');
     }
 
     update(){
@@ -14,10 +18,8 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         this.body.velocity.x = 0;
         //velocity used for faster falling down
         this.body.velocity.y += 0;
-        //check mid air status
-        this.standing = this.body.blocked.down || this.body.wasTouching.down;
         //check jump avaliability
-        if(this.body.wasTouching.down){
+        if(this.body.touching.down){
             this.jumpOk = true;
         }
 
@@ -33,6 +35,7 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         if(this.jumpOk == true){
             if(Phaser.Input.Keyboard.JustDown(keySPACE)){
                 this.body.velocity.y = -1800;
+                this.sfxJump.play();
             }
             this.jumpOk = false;
         }

@@ -5,6 +5,9 @@ class Over extends Phaser.Scene{
 
     preload(){
     
+        //load audio
+        this.load.audio('click', './assets/click.wav');
+
     }
     create(){
 
@@ -50,10 +53,12 @@ class Over extends Phaser.Scene{
     update(){
         
         if(Phaser.Input.Keyboard.JustDown(this.continue)){
+            this.sound.play('click');
             this.scene.start("playScene");
         }
 
         if(Phaser.Input.Keyboard.JustDown(this.mainMenu)){
+            this.sound.play('click');
             this.scene.start("menuScene");
         }
     }

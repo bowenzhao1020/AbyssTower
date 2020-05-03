@@ -58,6 +58,7 @@ class Instru extends Phaser.Scene{
 
     update(){
         if(this.key.isDown){
+            this.sound.play('click');
             this.scene.start("playScene");
         }
     }

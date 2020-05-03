@@ -71,21 +71,35 @@ class Play extends Phaser.Scene{
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
+        //game over check
+        this.gameOver = false;
     }
 
     update(){
-        //update player movement
-        this.player.update();
 
-        this.platform01.update();
-        this.platform02.update();
-        this.platform03.update();
-        this.platform04.update();
-        this.platform05.update();
-        this.platform06.update();
-        this.platform07.update();
-        this.platform08.update();
-        this.platform09.update();
+        if(this.player.body.blocked.down){
+            this.gameOver = true;
+        }
+
+        if(this.gameOver == true){
+            this.time.delayedCall(2000, () => { this.scene.start('overScene');});
+        }
+
+        //check if not over
+        if(this.gameOver == false){
+            //update player movement
+            this.player.update();
+            //update platform movement
+            this.platform01.update();
+            this.platform02.update();
+            this.platform03.update();
+            this.platform04.update();
+            this.platform05.update();
+            this.platform06.update();
+            this.platform07.update();
+            this.platform08.update();
+            this.platform09.update();
+        }
 
         //collision between player and platform
         this.physics.collide(this.platform01, this.player);

@@ -37,10 +37,10 @@ class Instru extends Phaser.Scene{
 
         this.add.text(centerX, 80, 'Instruction!', titleConfig).setOrigin(0.5);
 
-        this.add.text(centerX, 150, 'Press ← and → to move around', instruConfig).setOrigin(0.5);
-        this.add.text(centerX, 200, 'Press space bar to jump', instruConfig).setOrigin(0.5);
+        this.add.text(centerX, 300, 'Press ← and → to move around', instruConfig).setOrigin(0.5);
+        this.add.text(centerX, 400, 'Press space bar to jump', instruConfig).setOrigin(0.5);
 
-        this.add.text(centerX, 300, 'Press Space to Escape from HELLLLL', instruConfig).setOrigin(0.5);
+        this.add.text(centerX, 700, 'Press Space to Escape from HELLLLL', instruConfig).setOrigin(0.5);
 
         //space key scene change
         this.key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);

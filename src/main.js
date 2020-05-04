@@ -8,7 +8,7 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            //debug: true,
             gravity: {
                 y: 5000,
             }
@@ -30,3 +30,6 @@ let spdChk = 0;
 // global event
 let centerX = game.config.width/2;
 let centerY = game.config.height/2;
+
+// check game over
+let gameOver = false;

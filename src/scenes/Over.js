@@ -38,6 +38,8 @@ class Over extends Phaser.Scene{
 
         this.add.text(centerX, 300, 'You Are Dead', titleConfig).setOrigin(0.5);
 
+        this.add.text(centerX, 450, 'Your Score: ' + score, instruConfig).setOrigin(0.5);
+
         this.add.text(centerX, 600, 'Click space to try again', instruConfig).setOrigin(0.5);
         this.add.text(centerX, 650, 'Click esc to return to main menu', instruConfig).setOrigin(0.5);
 

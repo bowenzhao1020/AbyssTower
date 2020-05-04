@@ -31,7 +31,7 @@ class PlatformL extends Phaser.Physics.Arcade.Sprite{
         }
        
         // reset condition
-        if(this.y > game.config.height + 49){
+        if(this.y > game.config.height + 49 && gameOver == false){
             this.reset();
             score += 5;
         }

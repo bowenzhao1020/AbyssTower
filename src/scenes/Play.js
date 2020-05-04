@@ -119,17 +119,16 @@ class Play extends Phaser.Scene{
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
-        //game over check
-        this.gameOver = false;
-
         //check death sound effect
         this.soundPlay = false;
+
+
+        //reset gameOver condition
+        gameOver = false;
 
     }
 
     update(){
-
-        //console.log(spdChk);
 
         //score display
         this.disScore.text = 'score: ' + score;
@@ -140,10 +139,10 @@ class Play extends Phaser.Scene{
 
         //game over condition
         if(this.physics.collide(this.spike, this.player)){
-            this.gameOver = true;
+            gameOver = true;
             this.player.body.velocity.x = 0;
         }
-        if(this.gameOver == true){
+        if(gameOver == true){
             if(this.soundPlay == false){
                 this.playBgm.stop();
                 this.sound.play('death');
@@ -154,7 +153,7 @@ class Play extends Phaser.Scene{
         }
 
         //check if not over
-        if(this.gameOver == false){
+        if(gameOver == false){
             //update player movement
             this.player.update();
             if(Phaser.Input.Keyboard.JustDown(keyLEFT)){

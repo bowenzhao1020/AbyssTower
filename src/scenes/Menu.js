@@ -53,7 +53,7 @@ class Menu extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        this.add.text(centerX, centerY - 300, 'Hell Tower', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - 300, 'Abyss Tower', menuConfig).setOrigin(0.5);
         this.add.text(centerX, centerY + 300, 'Press Space Key To Start', infoConfig).setOrigin(0.5);
 
         //space key scene change

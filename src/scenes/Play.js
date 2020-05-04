@@ -20,20 +20,6 @@ class Play extends Phaser.Scene{
         //score initial
         score = 0;
 
-        // score display
-        let scoreConfig = {
-            fontFamily: 'Courier',
-            fontSize: '50px',
-            color: '#FFFFFF',
-            align: 'center',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 100
-        }
-        this.disScore = this.add.text(69, 54, score, scoreConfig);
-
         // load background
         this.background = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 0);
 
@@ -74,6 +60,11 @@ class Play extends Phaser.Scene{
 
         //load spike
         this.spike = this.add.sprite(0, game.config.height - 75, 'spike').setOrigin(0, 0);
+
+        //
+        this.disScore = this.add.text(25, 25, score, {fontSize: '50px', fill: '#FFF'});
+
+        //
         
         // player physics activate
         this.physics.add.existing(this.player);
@@ -138,6 +129,10 @@ class Play extends Phaser.Scene{
 
     update(){
 
+        //console.log(spdChk);
+
+        //score display
+        this.disScore.text = 'score: ' + score;
 
         //background scrolling
         this.background.tilePositionY -= 4;        

@@ -6,6 +6,8 @@ class PlatformC extends Phaser.Physics.Arcade.Sprite{
         //add to existing, displayList, updateList
         scene.add.existing(this);
 
+        this.spdUp = 0;
+        this.isUp = false;
     }
 
     update(){
@@ -13,17 +15,25 @@ class PlatformC extends Phaser.Physics.Arcade.Sprite{
         //initiate velocity : maybe implement random x movement later version
         this.body.velocity.x = 0;
         //velocity used for platform falling
-        this.body.velocity.y = 0;
-        //use to increase the dropping down speed of platform
-        if(spdChk == 100){
-            this.body.y += 2;
-            spdChk = 0;
+        this.body.velocity.y = 0 + this.spdUp;
+        
+        // //use to increase the dropping down speed of platform
+        if(score != 0 && score%100 == 0){
+            if(this.isUp == false){
+                //console.log(this.spdUp);
+                this.spdUp += 100;
+                this.isUp = true;
+                //console.log(this.spdUp);
+            }
+        }
+        else if(score%100 != 0){
+            this.isUp = false;
         }
        
+        // reset condition
         if(this.y > game.config.height + 49){
             this.reset();
             score += 5;
-            spdChk += 5;
         }
     }
 

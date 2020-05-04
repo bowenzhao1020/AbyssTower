@@ -8,13 +8,31 @@ class Play extends Phaser.Scene{
         this.load.image('spike', './assets/Spike.png');
         this.load.image('background', './assets/Background.png');
         this.load.image('platform', './assets/Platform.png');
-        this.load.spritesheet('player', './assets/Player.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 7});
+        this.load.spritesheet('playerL', './assets/KnightL.png', {frameWidth: 55, frameHeight: 50, startFrame: 0, endFrame: 3});
+        this.load.spritesheet('playerR', './assets/KnightR.png', {frameWidth: 55, frameHeight: 50, startFrame: 0, endFrame: 3});
 
         //load bgm
         this.load.audio('playBgm', './assets/playBGM.mp3');
     }
     
     create(){
+
+        //score initial
+        score = 0;
+
+        // score display
+        let scoreConfig = {
+            fontFamily: 'Courier',
+            fontSize: '50px',
+            color: '#FFFFFF',
+            align: 'center',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 100
+        }
+        this.disScore = this.add.text(69, 54, score, scoreConfig);
 
         // load background
         this.background = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 0);
@@ -29,7 +47,19 @@ class Play extends Phaser.Scene{
         this.playBgm.play();
 
         //player added
-        this.player = new Player(this, centerX, centerY, 'player').setOrigin(0.5, 0.5);
+        this.player = new Player(this, centerX, centerY, 'playerR').setOrigin(0.5, 0.5);
+
+        //player moving animation
+        this.anims.create({
+            key: 'left',
+            frames: this.anims.generateFrameNumbers('playerL', { frames: [0, 1, 2, 3] }),
+            frameRate: 10,
+        });
+        this.anims.create({
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('playerR', { frames: [0, 1, 2, 3] }),
+            frameRate: 10,
+        });
 
         //platform sprite added
         this.platform01 = new PlatformL(this, 115, 570, 'platform').setOrigin(0.5, 0.5);
@@ -108,6 +138,7 @@ class Play extends Phaser.Scene{
 
     update(){
 
+
         //background scrolling
         this.background.tilePositionY -= 4;        
 
@@ -115,8 +146,8 @@ class Play extends Phaser.Scene{
         //game over condition
         if(this.physics.collide(this.spike, this.player)){
             this.gameOver = true;
+            this.player.body.velocity.x = 0;
         }
-
         if(this.gameOver == true){
             if(this.soundPlay == false){
                 this.playBgm.stop();
@@ -131,6 +162,13 @@ class Play extends Phaser.Scene{
         if(this.gameOver == false){
             //update player movement
             this.player.update();
+            if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
+                this.player.play('left');
+            }
+            else if(Phaser.Input.Keyboard.JustDown(keyRIGHT)){
+                this.player.play('right');
+            }
+                
         }
             //update platform movement
             this.platform01.update();

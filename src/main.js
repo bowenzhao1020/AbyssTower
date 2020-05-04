@@ -22,7 +22,10 @@ let game = new Phaser.Game(config);
 // reserve keyboard value
 let keySPACE, keyLEFT, keyRIGHT;
 
-let player, platforms;
+//variable for checking speed
+let score = 0;
+//variable for increase speed at a certain score
+let spdChk = 0;
 
 // global event
 let centerX = game.config.width/2;

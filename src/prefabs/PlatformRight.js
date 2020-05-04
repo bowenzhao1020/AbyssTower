@@ -15,10 +15,15 @@ class PlatformR extends Phaser.Physics.Arcade.Sprite{
         //velocity used for platform falling
         this.body.velocity.y = 0;
         //use to increase the dropping down speed of platform
-        this.body.y += 0;
+        if(spdChk == 100){
+            this.body.y += 2;
+            spdChk = 0;
+        }
        
         if(this.y > game.config.height + 49){
             this.reset();
+            score += 5;
+            spdChk += 5;
         }
     }
 

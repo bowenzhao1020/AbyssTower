@@ -43,8 +43,4 @@ class Player extends Phaser.Physics.Arcade.Sprite{
         
     }
 
-    // condition for player restart the game
-    reset() {
-
-    }
 }
